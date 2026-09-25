@@ -1,0 +1,1579 @@
+# FPT: 23:59 ESCAPE PROTOCOL
+
+**Genre:** Comedy, School Life, Survival, Psychological Horror nhẹ vào lúc deadline
+**Engine đề xuất:** Ren’Py
+**Thời lượng:** 30–50 phút
+**Setting:** Một ngày bình thường tại một trường đại học công nghệ mang năng lượng FPT cực mạnh.
+**Mục tiêu:** Hoàn thành nghĩa vụ sinh viên và THOÁT KHỎI TRƯỜNG trước khi linh hồn bị deadline hút sạch.
+
+---
+
+# 1. NHÂN VẬT
+
+### PLAYER
+
+Sinh viên năm cuối ngành công nghệ/game.
+
+Có kiến thức chuyên môn.
+
+Không có kiến thức về cách sống một cuộc đời bình thường.
+
+Châm ngôn:
+
+> “Học được. Deadline được. Nhưng 5 giờ chiều cho tôi về.”
+
+---
+
+### MINH
+
+Bạn cùng lớp.
+
+Luôn xuất hiện cùng câu:
+
+> “Ê ông, làm xíu cái này thôi.”
+
+“Xíu” của Minh thường kéo dài từ 30 phút đến 7 tiếng.
+
+---
+
+### LINH
+
+Leader nhóm.
+
+Có khả năng triệu hồi meeting bất kỳ lúc nào.
+
+Passive skill:
+
+**“Quick Meeting”**
+
+Description:
+
+> Một cuộc họp được quảng cáo là 10 phút nhưng thời lượng thực tế chưa được khoa học xác định.
+
+---
+
+### THẦY DEV
+
+Giảng viên môn lập trình.
+
+Hiền.
+
+Vui tính.
+
+Nguy hiểm.
+
+Có khả năng nói câu:
+
+> “Bài này đơn giản thôi.”
+
+Ngay trước khi cả lớp nhìn thấy đề dài 17 trang.
+
+---
+
+### CÔ LMS
+
+Thực thể bí ẩn đại diện cho hệ thống học tập.
+
+Không rõ là người hay AI.
+
+Xuất hiện mỗi khi deadline gần tới.
+
+Dialogue thường xuất hiện màu đỏ.
+
+---
+
+### CHÚ BẢO VỆ
+
+NPC tưởng như bình thường.
+
+Thực chất là vị thần đứng giữa sinh viên và tự do.
+
+Người cuối cùng bạn muốn gặp lúc 23:58.
+
+---
+
+# 2. GAME VARIABLES
+
+Khởi đầu:
+
+Energy = 100
+Sanity = 100
+AcademicProgress = 0
+EscapePoint = 0
+PendingTasks = 0
+
+Flags:
+
+attendance_done = False
+quiz_done = False
+group_task_done = False
+assignment_uploaded = False
+escaped_school = False
+
+Các lựa chọn sẽ thay đổi chỉ số.
+
+Nếu:
+
+EscapePoint >= 4
+PendingTasks <= 2
+Energy > 0
+
+→ GOOD ENDING
+
+Nếu:
+
+Energy <= 0
+
+hoặc
+
+PendingTasks >= 6
+
+hoặc
+
+Player tự nguyện ở trường quá lâu
+
+→ BAD ENDING
+
+---
+
+# PROLOGUE
+
+## SCENE 00 — 06:29 AM
+
+Background:
+
+Phòng ngủ tối.
+
+PC gaming RGB đang sáng.
+
+Điện thoại nằm trên bàn.
+
+Màn hình hiện:
+
+**06:29**
+
+PLAYER đang ngủ cực ngon.
+
+NARRATOR:
+
+Ngày 25 tháng 9.
+
+Một ngày thứ Sáu tuyệt đẹp.
+
+Chim đang hót.
+
+Mặt trời đang mọc.
+
+Và cách đây khoảng tám tiếng...
+
+PLAYER đã phạm một sai lầm chiến lược nghiêm trọng.
+
+PLAYER:
+
+...
+
+PLAYER:
+
+“Chơi thêm một trận thôi.”
+
+FLASHBACK.
+
+Màn hình:
+
+**02:47 AM**
+
+PLAYER:
+
+“Ok trận cuối thật.”
+
+CUT.
+
+06:30 AM.
+
+Điện thoại:
+
+# RRRRRRRRRRRRRR!!!!
+
+PLAYER:
+
+“AAAAAAAA—”
+
+NARRATOR:
+
+Boss đầu tiên xuất hiện.
+
+# BOSS 1
+
+## THE ALARM CLOCK
+
+HP: ∞
+
+Weakness: Không có.
+
+Choice:
+
+### [A] Tắt báo thức và ngủ tiếp 5 phút.
+
+Energy +10
+
+Sanity +5
+
+TIME SKIP.
+
+07:18 AM.
+
+PLAYER:
+
+“...”
+
+PLAYER:
+
+“...”
+
+PLAYER:
+
+“...”
+
+PLAYER:
+
+“OH SH—”
+
+Energy -20
+
+EscapePoint -1
+
+---
+
+### [B] Dậy ngay.
+
+PLAYER:
+
+“Không.”
+
+PLAYER:
+
+“Hôm nay tao sẽ sống như một con người có trách nhiệm.”
+
+NARRATOR:
+
+Một câu nói cực kỳ mạnh mẽ.
+
+Không ai trong căn phòng tin nó.
+
+EscapePoint +1
+
+---
+
+# SCENE 01 — 07:28 AM
+
+## CỔNG TRƯỜNG
+
+PLAYER chạy vào trường.
+
+PLAYER:
+
+“CÒN HAI PHÚT!”
+
+NARRATOR:
+
+Trong lịch sử nhân loại...
+
+Usain Bolt từng đạt gần 45 km/h.
+
+Nhưng Usain Bolt chưa từng có tiết học lúc 7:30.
+
+PLAYER lao vào thang máy.
+
+Cửa chuẩn bị đóng.
+
+Một bàn tay chặn lại.
+
+MINH bước vào.
+
+MINH:
+
+“Ê.”
+
+PLAYER:
+
+“Đừng.”
+
+MINH:
+
+“Tui chưa nói gì mà?”
+
+PLAYER:
+
+“Tôi cảm nhận được deadline.”
+
+MINH:
+
+“Ông làm bài chưa?”
+
+PLAYER:
+
+“...”
+
+MINH:
+
+“À.”
+
+PLAYER:
+
+“Đừng nhìn tôi bằng ánh mắt đó.”
+
+DING.
+
+07:30.
+
+---
+
+# SCENE 02 — TIẾT HỌC BUỔI SÁNG
+
+THẦY DEV:
+
+“Good morning class.”
+
+CẢ LỚP:
+
+“...”
+
+THẦY DEV:
+
+“Hôm nay chúng ta sẽ bắt đầu bằng một bài quiz nhỏ.”
+
+Music stops.
+
+PLAYER:
+
+“...”
+
+MINH:
+
+“...”
+
+Một sinh viên ở cuối lớp:
+
+“Thầy ơi em xin về.”
+
+THẦY DEV:
+
+“Quiz chỉ có 10 câu thôi.”
+
+NARRATOR:
+
+Tình hình tạm thời ổn định.
+
+THẦY DEV:
+
+“Open book.”
+
+Cả lớp thở phào.
+
+THẦY DEV:
+
+“20 phút.”
+
+PLAYER:
+
+“Nice.”
+
+THẦY DEV:
+
+“Có coding.”
+
+PLAYER:
+
+“...”
+
+MINH:
+
+“Chúng ta đã có một cuộc đời đẹp.”
+
+---
+
+## CHOICE
+
+### [A] Bình tĩnh đọc đề.
+
+Sanity -5
+
+AcademicProgress +2
+
+quiz_done = True
+
+PLAYER:
+
+“Đọc đề.”
+
+PLAYER:
+
+“Hiểu đề.”
+
+PLAYER:
+
+“Code.”
+
+PLAYER:
+
+“Debug.”
+
+PLAYER:
+
+“Không panic.”
+
+NARRATOR:
+
+PLAYER vừa vô tình thực hiện quy trình phát triển phần mềm đúng chuẩn.
+
+Achievement unlocked:
+
+# PROFESSIONAL HUMAN BEING
+
+---
+
+### [B] Hoảng loạn ngay lập tức.
+
+PLAYER:
+
+“AAAAAAAAAAAAAAAA.”
+
+MINH:
+
+“Bro?”
+
+PLAYER:
+
+“STACK OVERFLOW.”
+
+MINH:
+
+“Ông còn chưa mở IDE.”
+
+PLAYER:
+
+“TÔI BIẾT.”
+
+Sanity -20
+
+PendingTasks +1
+
+---
+
+# SCENE 03 — 09:30 AM
+
+## BREAK TIME
+
+PLAYER bước ra hành lang.
+
+Energy: đang tụt nhanh.
+
+MINH:
+
+“Xuống căn tin không?”
+
+PLAYER nhìn điện thoại.
+
+Có ba notification.
+
+**GROUP PROJECT**
+
+LINH:
+
+“@everyone có ai rảnh meeting tí không?”
+
+PLAYER:
+
+“Không.”
+
+Notification thứ hai.
+
+LINH:
+
+“10 phút thôi.”
+
+PLAYER:
+
+“KHÔNG.”
+
+Notification thứ ba.
+
+LINH:
+
+“Quan trọng nha.”
+
+Màn hình rung.
+
+## BOSS ENCOUNTER
+
+# QUICK MEETING
+
+Threat Level:
+
+★★★★★
+
+Choice:
+
+### [A] Đi ăn.
+
+PLAYER:
+
+“Con người cần glucose.”
+
+MINH:
+
+“Chính xác.”
+
+Energy +20
+
+Sanity +10
+
+EscapePoint +1
+
+---
+
+### [B] Join meeting.
+
+Video call opens.
+
+LINH:
+
+“Ok meeting nhanh thôi nha.”
+
+TIME CARD:
+
+09:35
+
+CUT.
+
+TIME CARD:
+
+10:47
+
+PLAYER:
+
+“...”
+
+LINH:
+
+“Ok còn một vấn đề nhỏ nữa.”
+
+PLAYER:
+
+“Cái meeting này đã tồn tại lâu hơn một số nền văn minh.”
+
+Energy -25
+
+Sanity -15
+
+AcademicProgress +1
+
+PendingTasks -1
+
+---
+
+# SCENE 04 — 11:00 AM
+
+## GROUP PROJECT
+
+LINH:
+
+“Project hiện đang có một bug nhỏ.”
+
+PLAYER:
+
+“Bug gì?”
+
+LINH:
+
+“Không chạy.”
+
+PLAYER:
+
+“Đó không phải bug nhỏ.”
+
+MINH:
+
+“Máy tôi chạy.”
+
+PLAYER:
+
+“Commit chưa?”
+
+MINH:
+
+“Rồi.”
+
+PLAYER:
+
+“Push chưa?”
+
+MINH:
+
+“...”
+
+PLAYER:
+
+“Minh.”
+
+MINH:
+
+“À.”
+
+PLAYER:
+
+“MINH.”
+
+MINH:
+
+“Quên.”
+
+PLAYER nhìn vào khoảng không.
+
+NARRATOR:
+
+Một lập trình viên vừa trải nghiệm năm giai đoạn đau buồn.
+
+Denial.
+
+Anger.
+
+Bargaining.
+
+Depression.
+
+Git pull.
+
+---
+
+## CHOICE
+
+### [A] Fix project ngay.
+
+Energy -15
+
+AcademicProgress +2
+
+group_task_done = True
+
+EscapePoint +1
+
+PLAYER:
+
+“Không sao.”
+
+PLAYER:
+
+“Fix sớm thì chiều về sớm.”
+
+NARRATOR:
+
+Foreshadowing detected.
+
+---
+
+### [B] “Chiều làm.”
+
+PLAYER:
+
+“Để chiều đi.”
+
+NARRATOR:
+
+Một quyết định mà hàng triệu sinh viên trước đây cũng từng đưa ra.
+
+Không ai trong số họ vui vẻ vào buổi tối.
+
+PendingTasks +2
+
+---
+
+# SCENE 05 — 12:00 PM
+
+## LUNCH
+
+PLAYER đứng trước đồ ăn.
+
+PLAYER:
+
+“Cuối cùng.”
+
+MINH:
+
+“Ăn xong làm assignment nha.”
+
+PLAYER:
+
+“Minh.”
+
+MINH:
+
+“Gì?”
+
+PLAYER:
+
+“Tại sao ông không bao giờ nói về phim ảnh?”
+
+MINH:
+
+“Ờ.”
+
+PLAYER:
+
+“Âm nhạc?”
+
+MINH:
+
+“Ờ.”
+
+PLAYER:
+
+“Game?”
+
+MINH:
+
+“Ờ.”
+
+PLAYER:
+
+“Tình yêu?”
+
+MINH:
+
+“Ờ.”
+
+PLAYER:
+
+“MỖI LẦN ÔNG MỞ MIỆNG LÀ PROJECT.”
+
+MINH:
+
+“Deadline mai.”
+
+PLAYER:
+
+“Understandable.”
+
+---
+
+Choice:
+
+### [A] Ăn đàng hoàng.
+
+Energy +30
+
+Sanity +10
+
+---
+
+### [B] Vừa ăn vừa code.
+
+AcademicProgress +1
+
+Energy +10
+
+Sanity -10
+
+PLAYER:
+
+“Laptop.”
+
+PLAYER:
+
+“Cơm.”
+
+PLAYER:
+
+“Laptop.”
+
+PLAYER:
+
+“Cơm.”
+
+MINH:
+
+“Ông đang sống nguy hiểm.”
+
+PLAYER:
+
+“Tôi học công nghệ.”
+
+PLAYER:
+
+“Tôi chưa từng được sống an toàn.”
+
+---
+
+# SCENE 06 — 13:30
+
+## COMPUTER LAB
+
+PLAYER ngồi trước máy.
+
+PLAYER:
+
+“Ok.”
+
+PLAYER:
+
+“Chỉ cần code nốt.”
+
+Màn hình:
+
+# WINDOWS IS UPDATING
+
+# 3%
+
+PLAYER:
+
+“...”
+
+PLAYER:
+
+“Không.”
+
+4%.
+
+PLAYER:
+
+“Không.”
+
+5%.
+
+PLAYER:
+
+“TAO NÓI KHÔNG.”
+
+NARRATOR:
+
+Boss thứ hai đã xuất hiện.
+
+# WINDOWS UPDATE
+
+HP: UNKNOWN
+
+Estimated completion:
+
+**Working on updates. Please don't turn off your computer.**
+
+MINH:
+
+“Máy tui bình thường.”
+
+PLAYER:
+
+“Đừng nói chuyện với tôi.”
+
+---
+
+15 phút sau.
+
+Update:
+
+# 7%
+
+PLAYER:
+
+“Tiến bộ.”
+
+MINH:
+
+“2%.”
+
+PLAYER:
+
+“TIẾN BỘ.”
+
+---
+
+Choice:
+
+### [A] Dùng laptop cá nhân.
+
+Energy -5
+
+AcademicProgress +2
+
+EscapePoint +1
+
+---
+
+### [B] Ngồi nhìn update.
+
+Sanity -20
+
+PLAYER:
+
+“Có lẽ đây là lúc suy ngẫm về cuộc đời.”
+
+NARRATOR:
+
+PLAYER bắt đầu nhớ lại những lựa chọn dẫn mình đến ngành công nghệ.
+
+---
+
+# SCENE 07 — 15:45
+
+Tiết cuối.
+
+PLAYER:
+
+“Gần rồi.”
+
+PLAYER:
+
+“Chỉ còn 75 phút.”
+
+PLAYER nhìn ra cửa sổ.
+
+Ánh nắng chiều.
+
+Chim bay.
+
+Tự do.
+
+THẦY DEV:
+
+“Trước khi kết thúc...”
+
+Music stops.
+
+PLAYER:
+
+“...”
+
+MINH:
+
+“...”
+
+THẦY DEV:
+
+“Thầy có một bài assignment nhỏ.”
+
+Cả lớp:
+
+“AAAAAAAAAAAAAAAAAAAA.”
+
+THẦY DEV:
+
+“Không khó.”
+
+PLAYER:
+
+“Đừng nói câu đó.”
+
+THẦY DEV:
+
+“Hạn tối nay.”
+
+Lightning SFX.
+
+CÔ LMS xuất hiện từ bóng tối.
+
+CÔ LMS:
+
+**23:59.**
+
+PLAYER:
+
+“AAAAAAAAAAAAA.”
+
+---
+
+# SCENE 08 — 16:55
+
+## FINAL FIVE MINUTES
+
+PLAYER nhìn đồng hồ.
+
+16:55.
+
+Ba lô đã đóng.
+
+Laptop đã shutdown.
+
+PLAYER:
+
+“Không gì có thể ngăn mình nữa.”
+
+Notification.
+
+LINH:
+
+“@everyone.”
+
+PLAYER:
+
+“...”
+
+LINH:
+
+“Có ai ở lại fix một xíu không?”
+
+PLAYER:
+
+“Không.”
+
+MINH:
+
+“Ông về hả?”
+
+PLAYER:
+
+“Đúng.”
+
+MINH:
+
+“Assignment thì sao?”
+
+PLAYER:
+
+“Làm ở nhà.”
+
+MINH:
+
+“Project?”
+
+PLAYER:
+
+“Git tồn tại vì một lý do.”
+
+MINH:
+
+“Meeting?”
+
+PLAYER:
+
+“Discord tồn tại vì một lý do.”
+
+MINH:
+
+“Lab?”
+
+PLAYER:
+
+“Remote desktop tồn tại vì một lý do.”
+
+MINH:
+
+“Thầy?”
+
+PLAYER:
+
+“Thầy cũng cần về nhà.”
+
+---
+
+## FINAL CHOICE
+
+### [A] ĐI VỀ.
+
+EscapePoint +2
+
+PLAYER:
+
+“Không.”
+
+PLAYER:
+
+“Hôm nay kết thúc ở đây.”
+
+PLAYER bước về phía thang máy.
+
+Epic music.
+
+NARRATOR:
+
+17:00.
+
+Sau mười tiếng chiến đấu...
+
+PLAYER cuối cùng đã nhìn thấy nó.
+
+Cánh cổng.
+
+Ánh nắng.
+
+Bầu trời.
+
+Tự do.
+
+CHÚ BẢO VỆ:
+
+“Về hả em?”
+
+PLAYER:
+
+“Dạ.”
+
+CHÚ BẢO VỆ:
+
+“Ừ về đi.”
+
+PLAYER:
+
+“...”
+
+PLAYER:
+
+“Chú.”
+
+CHÚ BẢO VỆ:
+
+“Hử?”
+
+PLAYER:
+
+“Cháu sẽ không bao giờ quên chú.”
+
+CHÚ BẢO VỆ:
+
+“?”
+
+---
+
+Nếu đủ điều kiện:
+
+EscapePoint >= 4
+Energy > 0
+PendingTasks <= 2
+
+→ GOOD ENDING.
+
+---
+
+# GOOD ENDING
+
+## HOME — 18:02
+
+PLAYER mở cửa phòng.
+
+Quăng balo xuống.
+
+Bật PC.
+
+RGB LIGHTING ON.
+
+Steam startup sound.
+
+PLAYER:
+
+“Cuối cùng...”
+
+PLAYER mở game.
+
+Bạn bè Discord:
+
+“Ê vô game không?”
+
+PLAYER:
+
+“VÔ.”
+
+FRIEND:
+
+“Mai deadline đúng không?”
+
+PLAYER:
+
+“...”
+
+PLAYER:
+
+“Đó là vấn đề của Future Me.”
+
+NARRATOR:
+
+Và thế là...
+
+PLAYER đã thành công thoát khỏi trường.
+
+Không phải nhờ sức mạnh.
+
+Không phải nhờ trí thông minh.
+
+Mà nhờ kỹ năng quan trọng nhất của sinh viên năm cuối:
+
+# BIẾT KHI NÀO NÊN ĐI VỀ.
+
+ENDING CG:
+
+PLAYER ngồi trước PC.
+
+Một tay cầm nước.
+
+Một tay cầm chuột.
+
+Game đang loading.
+
+Điện thoại phía sau hiện:
+
+**12 unread messages — GROUP PROJECT**
+
+PLAYER úp điện thoại xuống.
+
+PLAYER:
+
+“Không thấy.”
+
+PLAYER:
+
+“Không tồn tại.”
+
+# GOOD ENDING
+
+## “ESCAPE SUCCESSFUL”
+
+Student Status:
+
+ALIVE
+
+Energy:
+
+ENOUGH FOR ONE MORE GAME
+
+Mental Stability:
+
+QUESTIONABLE
+
+Tomorrow:
+
+PROBLEM FOR TOMORROW
+
+Achievement unlocked:
+
+# TOUCH GRASS... TOMORROW
+
+---
+
+# BAD ENDING ROUTE
+
+Nếu người chơi chọn:
+
+### [B] “Ở lại một chút.”
+
+PLAYER:
+
+“Thôi để tôi fix cho xong.”
+
+MINH:
+
+“Nice.”
+
+LINH:
+
+“Nice.”
+
+CÔ LMS:
+
+“Nice.”
+
+NARRATOR:
+
+Narrator did not like that.
+
+TIME CARD:
+
+17:15
+
+---
+
+PLAYER:
+
+“Fix xong rồi.”
+
+LINH:
+
+“Nhân tiện...”
+
+TIME CARD:
+
+18:30
+
+PLAYER:
+
+“Xong.”
+
+MINH:
+
+“Assignment?”
+
+PLAYER:
+
+“Ờ ha.”
+
+TIME CARD:
+
+20:10
+
+PLAYER:
+
+“Upload.”
+
+CÔ LMS:
+
+“File format invalid.”
+
+PLAYER:
+
+“...”
+
+TIME CARD:
+
+21:05
+
+PLAYER:
+
+“UPLOAD.”
+
+CÔ LMS:
+
+“Submission saved.”
+
+PLAYER:
+
+“Cuối cùng.”
+
+LINH:
+
+“Bro.”
+
+PLAYER:
+
+“Đừng.”
+
+LINH:
+
+“Slide.”
+
+PLAYER:
+
+“...”
+
+TIME CARD:
+
+22:17
+
+Energy:
+
+12
+
+Sanity:
+
+4
+
+PLAYER:
+
+“Font nào?”
+
+MINH:
+
+“Poppins.”
+
+PLAYER:
+
+“Ok.”
+
+LINH:
+
+“Hay Montserrat?”
+
+PLAYER:
+
+“Không.”
+
+LINH:
+
+“Inter?”
+
+PLAYER:
+
+“LINH.”
+
+---
+
+TIME CARD:
+
+23:47
+
+PLAYER ngồi một mình trong lớp.
+
+Màn hình laptop chiếu ánh sáng lên khuôn mặt.
+
+PLAYER:
+
+“Done...”
+
+PLAYER đứng dậy.
+
+CRACK.
+
+PLAYER:
+
+“?”
+
+Một cánh tay rơi xuống.
+
+PLAYER:
+
+“...”
+
+PLAYER:
+
+“Understandable.”
+
+NARRATOR:
+
+Sau 16 tiếng tại trường...
+
+Cơ thể PLAYER đã hoàn tất quá trình chuyển hóa.
+
+Từ:
+
+**Sinh viên**
+
+thành:
+
+**Calcium-based lifeform.**
+
+PLAYER giờ là một bộ xương.
+
+Bộ xương đeo balo.
+
+Bộ xương cầm laptop.
+
+Bộ xương bước về phía cổng.
+
+---
+
+## 23:59
+
+CHÚ BẢO VỆ:
+
+“Em.”
+
+SKELETON PLAYER:
+
+“Dạ?”
+
+CHÚ BẢO VỆ:
+
+“Muộn rồi đó.”
+
+SKELETON PLAYER:
+
+“Dạ em về.”
+
+CHÚ BẢO VỆ nhìn PLAYER.
+
+Pause.
+
+CHÚ BẢO VỆ:
+
+“Em học từ sáng tới giờ à?”
+
+SKELETON PLAYER:
+
+“Dạ.”
+
+CHÚ BẢO VỆ:
+
+“...”
+
+CHÚ BẢO VỆ:
+
+“Cố gắng dữ.”
+
+SKELETON PLAYER:
+
+“Dạ.”
+
+Một cơn gió thổi qua.
+
+Một vài cái xương bay mất.
+
+SKELETON PLAYER:
+
+“Chú đợi cháu nhặt cái xương chậu.”
+
+---
+
+Màn hình đen.
+
+Text:
+
+# BAD ENDING
+
+## “FPT HAS CONSUMED YOU”
+
+Student Status:
+
+DECEASED*
+
+*Vẫn phải đi học ngày mai.
+
+Energy:
+
+0
+
+Sanity:
+
+SEGMENTATION FAULT
+
+Bone Integrity:
+
+73%
+
+Assignment:
+
+SUBMITTED
+
+Group Project:
+
+SOMEHOW STILL NOT FINISHED
+
+---
+
+Điện thoại bộ xương rung.
+
+LINH:
+
+“@everyone sáng mai meeting 7:00 nha.”
+
+SKELETON PLAYER:
+
+“...”
+
+SKELETON PLAYER:
+
+“AAAAAAAAAAAAAAAAAAAA—”
+
+ROLL CREDITS.
+
+---
+
+# POST-CREDIT SCENE
+
+06:30 AM.
+
+Phòng ngủ.
+
+Bộ xương nằm trên giường.
+
+Điện thoại:
+
+# RRRRRRRRRRRRRR!!!!
+
+Skeleton hand reaches from blanket.
+
+PLAYER:
+
+“Thêm năm phút...”
+
+Text:
+
+# NEW GAME+
+
+Difficulty unlocked:
+
+## SENIOR YEAR

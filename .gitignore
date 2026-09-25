@@ -1,0 +1,7 @@
+# Ren'Py generates these when launching or linting a project.
+game/*.rpyc
+game/cache/
+game/saves/
+game/log.txt
+game/traceback.txt
+game/errors.txt
