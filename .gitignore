@@ -5,3 +5,6 @@ game/saves/
 game/log.txt
 game/traceback.txt
 game/errors.txt
+
+# Local playtest builds are delivered separately from the source repository.
+dist/

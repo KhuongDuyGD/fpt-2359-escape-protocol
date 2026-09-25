@@ -1,7 +1,31 @@
 # Self-contained 1280x720 UI. The default Ren'Py keyboard and mouse bindings
 # still supply normal advance, rollback, skip, and auto-forward behavior.
 
+init python:
+    def active_speaker_image(who):
+        """Return only the speaking character's standee; narration clears it."""
+        if who == "PLAYER":
+            if player_expression == "happy":
+                return "player happy"
+            if player_expression == "exhausted":
+                return "player exhausted"
+            return "player"
+        return {
+            "MINH": "minh",
+            "LINH": "linh",
+            "THẦY DEV": "thaydev",
+            "CÔ LMS": "colms",
+            "CHÚ BẢO VỆ": "baove",
+        }.get(who)
+
 screen say(who, what):
+    # A sprite belongs to this dialogue interaction. It automatically vanishes
+    # on narration and is replaced whenever the speaker changes.
+    $ sprite = active_speaker_image(who)
+    if sprite is not None:
+        add sprite:
+            xalign 0.5
+            yalign 1.0
     # Keep the speaker and every wrapped line inside one fixed dialogue panel.
     # Reserving the name row also keeps narrator text aligned with dialogue.
     window:
@@ -276,10 +300,10 @@ screen gallery_detail(ending):
         spacing 25
         if ending == "good":
             text "GOOD ENDING — ESCAPE SUCCESSFUL" xalign 0.5 size 45 color "#a7f0be"
-            text "Student Status: ALIVE\nEnergy: ENOUGH FOR ONE MORE GAME\nTomorrow: PROBLEM FOR TOMORROW" xalign 0.5 text_align 0.5 size 26
+            text "Student Status: ALIVE\nEnergy: Enough for one ranked match\nSanity: Functioning within acceptable parameters\nAssignments: Technically under control\nTomorrow: Future Me's problem\nAchievement: LOG OUT SUCCESSFULLY" xalign 0.5 text_align 0.5 size 23
         else:
             text "BAD ENDING — FPT HAS CONSUMED YOU" xalign 0.5 size 45 color "#ff8190"
-            text "Student Status: DECEASED*\n*Vẫn phải đi học ngày mai.\nSanity: SEGMENTATION FAULT" xalign 0.5 text_align 0.5 size 26
+            text "Student Status: Technically Alive\nEnergy: 0%%\nSanity: SEGMENTATION FAULT\nPhysical Condition: Dried student\nAssignment: SUBMITTED\nPresentation: UPDATED\nGroup Project: Somehow still has one bug\nTomorrow's Meeting: 07:00\nAchievement: JUST ONE MORE TASK" xalign 0.5 text_align 0.5 size 22
         textbutton "Close" action Hide("gallery_detail") xalign 0.5
 
 

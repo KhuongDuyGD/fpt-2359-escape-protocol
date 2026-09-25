@@ -3,12 +3,20 @@
 image bedroom_morning = Transform("images/backgrounds/KTXDay.png", size=(1280, 720))
 image bedroom_afternoon = Transform("images/backgrounds/KTXAfternoon.png", size=(1280, 720))  # Reserved for a future afternoon dorm scene.
 image bedroom_gaming = Transform("images/backgrounds/KTXNight.png", size=(1280, 720))
+image dorm_morning = "bedroom_morning"
+image dorm_night = "bedroom_gaming"
 image campus_day = Transform("images/backgrounds/FPTUday.png", size=(1280, 720))  # Daytime FPTU view; replaces FPTUanime.png.
 image campus_night = Transform("images/backgrounds/FPTUnight.png", size=(1280, 720))
 image school_gate = Transform("images/backgrounds/FPTUGate.png", size=(1280, 720))
 image school_night = Transform("images/backgrounds/FPTUGateNight.png", size=(1280, 720))
+image school_gate_morning = "school_gate"
+image school_gate_afternoon = "school_gate"  # No separate afternoon gate painting yet.
+image school_gate_night = "school_night"
 image classroom = Transform("images/backgrounds/ClassroomDay.png", size=(1280, 720))
 image classroom_evening = Transform("images/backgrounds/ClassroomNight.png", size=(1280, 720))
+image classroom_day = "classroom"
+image classroom_afternoon = "classroom"  # Day painting is still appropriate at 15:45.
+image classroom_night = "classroom_evening"
 image hallway = Transform("images/backgrounds/HallwayFPTU.png", size=(1280, 720))
 image hallway_afternoon = Transform("images/backgrounds/HallwayFPTUAfternoon.png", size=(1280, 720))
 image hallway_night = Transform("images/backgrounds/HallwayFPTUNight.png", size=(1280, 720))
@@ -40,5 +48,7 @@ define n = Character(None)
 define crowd = Character("CẢ LỚP")
 define student = Character("MỘT SINH VIÊN")
 define friend = Character("BẠN BÈ DISCORD")
+define voice_chat = Character("VOICE CHAT")
 
-# `show ... at left/center/right` uses Ren'Py's built-in stage positions.
+# The say screen picks a sprite from the current speaker. Story labels never
+# need to remember to hide a character when someone else starts speaking.

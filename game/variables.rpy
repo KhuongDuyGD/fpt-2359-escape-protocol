@@ -14,9 +14,10 @@ default escaped_school = False
 default persistent.good_ending_unlocked = False
 default persistent.bad_ending_unlocked = False
 default new_game_plus = False
+default final_choice = None
+default player_expression = "normal"
 
 # Kept in one place so the ending rules are easy to tune.
 init python:
     def can_escape_school():
         return escape_point >= 4 and energy > 0 and pending_tasks <= 2
-
