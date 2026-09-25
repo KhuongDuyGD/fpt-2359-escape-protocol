@@ -114,6 +114,7 @@ label bad_ending:
     m "Đó là quên."
     p "Đừng dùng logic lúc này."
     scene computer_lab with fade
+    $ player_expression = "angry"
     centered "20:12"
     n "PLAYER kéo file vào LMS."
     p "Submit."

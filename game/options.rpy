@@ -9,3 +9,10 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = False
 define config.check_conflicting_properties = True
+define config.window_icon = "images/backgrounds/GameIcon.png"
+
+init python:
+    # Prevent local playtest ZIPs and screenshot checks entering later builds.
+    build.classify("dist/**", None)
+    build.classify("tests/**", None)
+    build.classify("tools/**", None)

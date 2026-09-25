@@ -44,8 +44,15 @@ the starting stats and shows “Difficulty Unlocked: SENIOR YEAR.”
 `screens.rpy` chooses a standee from the speaker of the current line. Only
 that speaker appears. Narration and lines from characters without artwork
 clear the standee automatically. The PLAYER expression changes by scene, so
-the morning and night route use `MainExhaust.png`, while the successful escape
-uses `MainGoodMood.png`. Story labels do not need manual `show` or `hide` calls.
+the morning and night route use `MainExhaust.png`, the Windows and LMS conflicts
+use `MainAngry.png`, the deadline shock uses `MainCry.png`, and the successful
+escape uses `MainGoodMood.png`. Story labels do not need manual `show` or `hide` calls.
+
+## Main menu art
+
+`GameMainMenu.png` supplies the title-screen backdrop. `LogoGame.png` replaces
+the menu's text title, and the menu buttons remain clickable Ren'Py controls.
+`GameIcon.png` is the game window icon.
 
 ## Tuning the routes
 

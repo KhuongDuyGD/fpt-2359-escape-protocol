@@ -434,6 +434,7 @@ label scene_06_windows:
     n "PLAYER đặt tay lên chuột."
     p "Chỉ cần hoàn thiện phần này."
     n "Màn hình bật."
+    $ player_expression = "angry"
     centered "WINDOWS IS UPDATING"
     n "3%%"
     p "..."
@@ -496,6 +497,7 @@ label scene_06_windows:
 
 label scene_07_final_class:
     scene classroom_afternoon with fade
+    $ player_expression = "normal"
     n "Ánh nắng chiều tràn vào lớp."
     n "PLAYER nhìn đồng hồ."
     n "15:45."
@@ -525,6 +527,7 @@ label scene_07_final_class:
     n "Cả lớp cười."
     dev "Thật mà."
     n "THẦY DEV click slide."
+    $ player_expression = "cry"
     with flash
     play sound sfx_notification
     centered "DEADLINE — TODAY 23:59"
@@ -552,6 +555,7 @@ label scene_07_final_class:
 
 label scene_08_final_choice:
     scene classroom_afternoon with dissolve
+    $ player_expression = "normal"
     n "Laptop đã đóng."
     n "Balo đã đeo."
     n "PLAYER nhìn đồng hồ."

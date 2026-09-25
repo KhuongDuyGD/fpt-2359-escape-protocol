@@ -25,11 +25,18 @@ image canteen_afternoon = Transform("images/backgrounds/CanteenFPTUAfternoon.png
 image canteen_night = Transform("images/backgrounds/CanteenFPTUNight.png", size=(1280, 720))
 image computer_lab = Transform("images/backgrounds/ComputerLabDay.png", size=(1280, 720))
 
+# Title-screen art. GameMainMenu.png has decorative baked-in buttons; the
+# clickable controls in screens.rpy sit in a panel above those decorations.
+image game_main_menu_background = Transform("images/backgrounds/GameMainMenu.png", size=(1280, 720))
+image game_logo = Transform("images/backgrounds/LogoGame.png", zoom=0.27)
+
 # New standees are 1086x1448, so 0.43 keeps them below the dialogue box.
 # All three PLAYER expressions share one Ren'Py image tag and replace each other.
 image player = Transform("images/characters/MainNormal.png", zoom=0.43)
 image player happy = Transform("images/characters/MainGoodMood.png", zoom=0.43)
 image player exhausted = Transform("images/characters/MainExhaust.png", zoom=0.43)
+image player angry = Transform("images/characters/MainAngry.png", zoom=0.43)
+image player cry = Transform("images/characters/MainCry.png", zoom=0.43)
 image minh = Transform("images/characters/MinhAnime.png", zoom=0.43)
 image linh = Transform("images/characters/LinhAnime.png", zoom=0.43)
 image thaydev = Transform("images/characters/TeacherDev.png", zoom=0.43)

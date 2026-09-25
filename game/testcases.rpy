@@ -74,6 +74,10 @@ testcase failed_escape:
 testcase ui_screens:
     run Jump("start")
     assert eval (active_speaker_image("PLAYER") == "player exhausted" and active_speaker_image("MINH") == "minh" and active_speaker_image(None) is None)
+    run SetVariable("player_expression", "angry")
+    assert eval (active_speaker_image("PLAYER") == "player angry")
+    run SetVariable("player_expression", "cry")
+    assert eval (active_speaker_image("PLAYER") == "player cry")
     run ShowMenu("save")
     assert screen "save"
     run ShowMenu("load")
@@ -84,3 +88,9 @@ testcase ui_screens:
     assert screen "history"
     run ShowMenu("ending_gallery")
     assert screen "ending_gallery"
+
+
+testcase main_menu_assets:
+    run ShowMenu("main_menu")
+    assert screen "main_menu"
+    assert eval (renpy.loadable("images/backgrounds/GameMainMenu.png") and renpy.loadable("images/backgrounds/LogoGame.png") and renpy.loadable("images/backgrounds/GameIcon.png"))

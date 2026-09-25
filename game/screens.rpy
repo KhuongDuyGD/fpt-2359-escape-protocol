@@ -9,6 +9,10 @@ init python:
                 return "player happy"
             if player_expression == "exhausted":
                 return "player exhausted"
+            if player_expression == "angry":
+                return "player angry"
+            if player_expression == "cry":
+                return "player cry"
             return "player"
         return {
             "MINH": "minh",
@@ -122,20 +126,27 @@ screen boss_title(title, subtitle):
 
 screen main_menu():
     tag menu
-    add "bedroom_gaming"
-    add Solid("#080e1dbb")
-    vbox:
-        xpos 95
-        yalign 0.42
-        spacing 16
-        text "FPT: 23:59" size 68 bold True color "#ffffff"
-        text "ESCAPE PROTOCOL" size 38 color "#ffbd70"
-        null height 20
-        textbutton "Start Game" action Start() text_size 27
-        textbutton "Load Game" action ShowMenu("load") text_size 27
-        textbutton "Ending Gallery" action ShowMenu("ending_gallery") text_size 27
-        textbutton "Preferences" action ShowMenu("preferences") text_size 27
-        textbutton "Quit" action Quit(confirm=True) text_size 27
+    add "game_main_menu_background"
+    # This opaque panel masks the buttons/logo already printed on the image.
+    # The actual logo and controls remain crisp, interactive Ren'Py UI.
+    frame:
+        xpos 724
+        ypos 42
+        xsize 496
+        ysize 636
+        xpadding 34
+        ypadding 22
+        background Solid("#10121dfc")
+        vbox:
+            xfill True
+            spacing 9
+            add "game_logo" xalign 0.5
+            null height 3
+            textbutton "New Game" action Start() xfill True ysize 47 text_size 27 text_color "#ffffff" text_hover_color "#13151d" background Solid("#242331") hover_background Solid("#f89b3c") xpadding 17
+            textbutton "Load" action ShowMenu("load") xfill True ysize 47 text_size 27 text_color "#ffffff" text_hover_color "#13151d" background Solid("#242331") hover_background Solid("#f89b3c") xpadding 17
+            textbutton "Ending Gallery" action ShowMenu("ending_gallery") xfill True ysize 47 text_size 27 text_color "#ffffff" text_hover_color "#13151d" background Solid("#242331") hover_background Solid("#f89b3c") xpadding 17
+            textbutton "Settings" action ShowMenu("preferences") xfill True ysize 47 text_size 27 text_color "#ffffff" text_hover_color "#13151d" background Solid("#242331") hover_background Solid("#f89b3c") xpadding 17
+            textbutton "Quit" action Quit(confirm=True) xfill True ysize 47 text_size 27 text_color "#ffffff" text_hover_color "#13151d" background Solid("#242331") hover_background Solid("#f89b3c") xpadding 17
 
 
 screen menu_navigation():
