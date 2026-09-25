@@ -24,7 +24,7 @@ label start:
 
 label scene_00_alarm:
     scene bedroom_morning with fade
-    show player at center with dissolve
+    show player exhausted at center with dissolve
     centered "06:29 AM"
     n "Ngày 25 tháng 9."
     n "Một ngày thứ Sáu tuyệt đẹp."
@@ -36,13 +36,13 @@ label scene_00_alarm:
     p "Chơi thêm một trận thôi."
     scene bedroom_gaming with flash
     centered "02:47 AM"
-    show player at center
+    show player happy at center
     p "Ok trận cuối thật."
     scene bedroom_morning with fade
     centered "06:30 AM"
     play sound sfx_alarm
     centered "RRRRRRRRRRRRRR!!!!"
-    show player at center with hpunch
+    show player exhausted at center with hpunch
     p "AAAAAAAA—"
     n "Boss đầu tiên xuất hiện."
     play sound sfx_boss
@@ -70,8 +70,10 @@ label scene_00_alarm:
 
 
 label scene_01_gate:
+    scene campus_day with fade
+    pause 0.5
     scene school_gate with fade
-    show player at left with dissolve
+    show player exhausted at left with dissolve
     centered "07:28 AM — CỔNG TRƯỜNG"
     p "CÒN HAI PHÚT!"
     n "Trong lịch sử nhân loại..."
@@ -132,6 +134,7 @@ label scene_02_quiz:
             n "PLAYER vừa vô tình thực hiện quy trình phát triển phần mềm đúng chuẩn."
             centered "Achievement unlocked: PROFESSIONAL HUMAN BEING"
         "Hoảng loạn ngay lập tức.":
+            show player exhausted at left with dissolve
             p "AAAAAAAAAAAAAAAA."
             m "Bro?"
             p "STACK OVERFLOW."
@@ -146,7 +149,7 @@ label scene_02_quiz:
 
 label scene_03_break:
     scene hallway with fade
-    show player at left
+    show player exhausted at left
     show minh at right
     centered "09:30 AM — BREAK TIME"
     n "PLAYER bước ra hành lang."
@@ -172,7 +175,7 @@ label scene_03_break:
     menu:
         "Đi ăn.":
             scene canteen with dissolve
-            show player at left
+            show player happy at left
             show minh at right
             p "Con người cần glucose."
             m "Chính xác."
@@ -181,6 +184,7 @@ label scene_03_break:
             $ escape_point += 1
         "Join meeting.":
             n "Video call opens."
+            show player exhausted at left
             show linh at center with dissolve
             l "Ok meeting nhanh thôi nha."
             centered "09:35"
@@ -245,7 +249,7 @@ label scene_04_group_project:
 
 label scene_05_lunch:
     scene canteen with fade
-    show player at left
+    show player happy at left
     show minh at right
     centered "12:00 PM — LUNCH"
     n "PLAYER đứng trước đồ ăn."
@@ -273,6 +277,7 @@ label scene_05_lunch:
             $ academic_progress += 1
             $ energy += 10
             $ sanity -= 10
+            show player at left with dissolve
             p "Laptop."
             p "Cơm."
             p "Laptop."
@@ -300,6 +305,7 @@ label scene_06_windows_update:
     centered "4%%"
     p "Không."
     centered "5%%"
+    show player exhausted at left with dissolve
     p "TAO NÓI KHÔNG."
     with hpunch
     n "Boss thứ hai đã xuất hiện."
@@ -316,6 +322,7 @@ label scene_06_windows_update:
             $ energy -= 5
             $ academic_progress += 2
             $ escape_point += 1
+            show player at left with dissolve
         "Ngồi nhìn update.":
             $ sanity -= 20
             p "Có lẽ đây là lúc suy ngẫm về cuộc đời."
@@ -350,6 +357,7 @@ label scene_07_assignment:
     with flash
     show colms at right with dissolve
     lms "23:59."
+    show player exhausted at left with dissolve
     p "AAAAAAAAAAAAA."
     # The new assignment is still pending until the bad route submits it.
     $ pending_tasks += 1
@@ -359,7 +367,7 @@ label scene_07_assignment:
 
 label scene_08_final_choice:
     scene classroom_evening with fade
-    show player at left
+    show player exhausted at left
     show minh at right
     centered "16:55 — FINAL FIVE MINUTES"
     n "PLAYER nhìn đồng hồ."
@@ -397,9 +405,12 @@ label scene_08_final_choice:
 
 
 label attempt_escape:
+    show player happy at left with dissolve
     p "Không."
     p "Hôm nay kết thúc ở đây."
     n "PLAYER bước về phía thang máy."
+    scene hallway_afternoon with fade
+    show player happy at left
     centered "17:00"
     n "Sau mười tiếng chiến đấu..."
     n "PLAYER cuối cùng đã nhìn thấy nó."

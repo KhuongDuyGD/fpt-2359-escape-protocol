@@ -1,21 +1,32 @@
-# Replace these PNGs with final art without changing the story script.
-image bedroom_morning = "images/backgrounds/bedroom_morning.png"
-image school_gate = "images/backgrounds/school_gate.png"
-image classroom = "images/backgrounds/classroom.png"
-image hallway = "images/backgrounds/hallway.png"
-image canteen = "images/backgrounds/canteen.png"
-image computer_lab = "images/backgrounds/computer_lab.png"
-image classroom_evening = "images/backgrounds/classroom_evening.png"
-image school_night = "images/backgrounds/school_night.png"
-image bedroom_gaming = "images/backgrounds/bedroom_gaming.png"
+# New backgrounds are 1672x941. Scale them to the project's 1280x720 stage.
+# Time-of-day variants are declared even where the screenplay has no scene for them.
+image bedroom_morning = Transform("images/backgrounds/KTXDay.png", size=(1280, 720))
+image bedroom_afternoon = Transform("images/backgrounds/KTXAfternoon.png", size=(1280, 720))  # Reserved for a future afternoon dorm scene.
+image bedroom_gaming = Transform("images/backgrounds/KTXNight.png", size=(1280, 720))
+image campus_day = Transform("images/backgrounds/FPTUday.png", size=(1280, 720))  # Daytime FPTU view; replaces FPTUanime.png.
+image campus_night = Transform("images/backgrounds/FPTUnight.png", size=(1280, 720))
+image school_gate = Transform("images/backgrounds/FPTUGate.png", size=(1280, 720))
+image school_night = Transform("images/backgrounds/FPTUGateNight.png", size=(1280, 720))
+image classroom = Transform("images/backgrounds/ClassroomDay.png", size=(1280, 720))
+image classroom_evening = Transform("images/backgrounds/ClassroomNight.png", size=(1280, 720))
+image hallway = Transform("images/backgrounds/HallwayFPTU.png", size=(1280, 720))
+image hallway_afternoon = Transform("images/backgrounds/HallwayFPTUAfternoon.png", size=(1280, 720))
+image hallway_night = Transform("images/backgrounds/HallwayFPTUNight.png", size=(1280, 720))
+image canteen = Transform("images/backgrounds/CanteenFPTU.png", size=(1280, 720))
+image canteen_afternoon = Transform("images/backgrounds/CanteenFPTUAfternoon.png", size=(1280, 720))
+image canteen_night = Transform("images/backgrounds/CanteenFPTUNight.png", size=(1280, 720))
+image computer_lab = Transform("images/backgrounds/ComputerLabDay.png", size=(1280, 720))
 
-image player = "images/characters/player.png"
-image minh = "images/characters/minh.png"
-image linh = "images/characters/linh.png"
-image thaydev = "images/characters/thaydev.png"
-image colms = "images/characters/colms.png"
-image baove = "images/characters/baove.png"
-image skeleton_player = "images/characters/skeleton_player.png"
+# New standees are 1086x1448, so 0.43 keeps them below the dialogue box.
+# All three PLAYER expressions share one Ren'Py image tag and replace each other.
+image player = Transform("images/characters/MainNormal.png", zoom=0.43)
+image player happy = Transform("images/characters/MainGoodMood.png", zoom=0.43)
+image player exhausted = Transform("images/characters/MainExhaust.png", zoom=0.43)
+image minh = Transform("images/characters/MinhAnime.png", zoom=0.43)
+image linh = Transform("images/characters/LinhAnime.png", zoom=0.43)
+image thaydev = Transform("images/characters/TeacherDev.png", zoom=0.43)
+image colms = Transform("images/characters/MissLMS.png", zoom=0.43)
+image baove = Transform("images/characters/MrSercurity.png", zoom=0.43)
 image black = Solid("#000000")
 
 # Character color identifies speakers even while placeholder sprites are used.
@@ -30,4 +41,4 @@ define crowd = Character("CẢ LỚP")
 define student = Character("MỘT SINH VIÊN")
 define friend = Character("BẠN BÈ DISCORD")
 
-# Basic stage positions. `show ... at left/right` uses Ren'Py's built-in transforms.
+# `show ... at left/center/right` uses Ren'Py's built-in stage positions.

@@ -3,7 +3,7 @@
 label good_ending:
     hide screen stats_hud
     scene bedroom_gaming with fade
-    show player at center with dissolve
+    show player happy at center with dissolve
     centered "HOME — 18:02"
     n "PLAYER mở cửa phòng."
     n "Quăng balo xuống."
@@ -51,7 +51,7 @@ label bad_ending:
         n "Deadline giữ PLAYER lại trường lâu hơn dự tính."
 
     scene classroom_evening with fade
-    show player at left
+    show player exhausted at left
     show linh at center
     show minh at right
     centered "17:15"
@@ -90,7 +90,7 @@ label bad_ending:
     p "LINH."
 
     scene classroom_evening with fade
-    show player at center
+    show player exhausted at center
     centered "23:47"
     n "PLAYER ngồi một mình trong lớp."
     n "Màn hình laptop chiếu ánh sáng lên khuôn mặt."
@@ -106,15 +106,20 @@ label bad_ending:
     n "Cơ thể PLAYER đã hoàn tất quá trình chuyển hóa."
     n "Từ: Sinh viên."
     n "Thành: Calcium-based lifeform."
-    hide player
-    show skeleton_player at center with dissolve
+    # MainExhaust represents the screenplay's skeleton gag in this route.
+    show player exhausted at center with dissolve
     n "PLAYER giờ là một bộ xương."
     n "Bộ xương đeo balo."
     n "Bộ xương cầm laptop."
     n "Bộ xương bước về phía cổng."
 
+    scene hallway_night with fade
+    show player exhausted at center
+    pause 0.5
+    scene campus_night with fade
+    pause 0.5
     scene school_night with fade
-    show skeleton_player at left
+    show player exhausted at left
     show baove at right
     centered "23:59"
     guard "Em."
@@ -144,7 +149,7 @@ label bad_ending:
     p "AAAAAAAAAAAAAAAAAAAA—"
     centered "ROLL CREDITS."
     scene bedroom_morning with fade
-    show skeleton_player at center
+    show player exhausted at center
     centered "06:30 AM"
     play sound sfx_alarm
     centered "RRRRRRRRRRRRRR!!!!"

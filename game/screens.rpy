@@ -2,16 +2,25 @@
 # still supply normal advance, rollback, skip, and auto-forward behavior.
 
 screen say(who, what):
+    # Keep the speaker and every wrapped line inside one fixed dialogue panel.
+    # Reserving the name row also keeps narrator text aligned with dialogue.
     window:
         id "window"
         xalign 0.5
         yalign 1.0
         xsize 1240
-        ysize 180
-        background Solid("#101827e8")
-        if who is not None:
-            text who id "who" xpos 24 ypos 12 size 28 color "#ffd37b"
-        text what id "what" xpos 24 ypos 54 xmaximum 1180 size 27 color "#f4f6fb"
+        ysize 204
+        xpadding 30
+        ypadding 20
+        background Solid("#101827f2")
+        vbox:
+            xfill True
+            spacing 8
+            if who is not None:
+                text who id "who" size 26 color "#ffd37b"
+            else:
+                null height 31
+            text what id "what" xsize 1180 size 27 color "#f4f6fb" text_align 0.0
     use quick_menu
 
 
@@ -34,17 +43,21 @@ screen choice(items):
 
 screen quick_menu():
     zorder 90
-    hbox:
+    frame:
         xalign 0.5
-        yalign 0.985
-        spacing 14
-        textbutton "Back" action Rollback() text_size 16
-        textbutton "History" action ShowMenu("history") text_size 16
-        textbutton "Skip" action Skip() text_size 16
-        textbutton "Auto" action Preference("auto-forward", "toggle") text_size 16
-        textbutton "Save" action ShowMenu("save") text_size 16
-        textbutton "Load" action ShowMenu("load") text_size 16
-        textbutton "Prefs" action ShowMenu("preferences") text_size 16
+        yalign 0.685
+        xpadding 16
+        ypadding 5
+        background Solid("#101827e8")
+        hbox:
+            spacing 14
+            textbutton "Back" action Rollback() text_size 16
+            textbutton "History" action ShowMenu("history") text_size 16
+            textbutton "Skip" action Skip() text_size 16
+            textbutton "Auto" action Preference("auto-forward", "toggle") text_size 16
+            textbutton "Save" action ShowMenu("save") text_size 16
+            textbutton "Load" action ShowMenu("load") text_size 16
+            textbutton "Prefs" action ShowMenu("preferences") text_size 16
 
 
 screen stats_hud():

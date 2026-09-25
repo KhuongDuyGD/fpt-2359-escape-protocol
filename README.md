@@ -1,8 +1,9 @@
 # FPT: 23:59 Escape Protocol
 
 A complete Ren'Py visual novel based on `VisualNovelContent.txt`. The Vietnamese
-dialogue and jokes follow the supplied screenplay. Generated placeholder PNGs
-and WAV cues are included, so there are no missing asset paths.
+dialogue and jokes follow the supplied screenplay. The supplied FPTU/KTX art is
+used for the cast and locations, with generated placeholder WAV cues. The bad
+ending uses the exhausted PLAYER sprite for the screenplay's skeleton gag.
 
 ## Run
 
@@ -17,8 +18,8 @@ with the files here. Avoid keeping duplicate screen or label definitions.
 
 - Click, Enter, or Space: advance dialogue
 - Mouse wheel up, Page Up, or **Back**: rollback
-- **Skip** and **Auto**: quick menu under dialogue
-- **Save**, **Load**, **History**, **Prefs**: quick menu under dialogue
+- **Skip** and **Auto**: quick menu above the dialogue box
+- **Save**, **Load**, **History**, **Prefs**: quick menu above the dialogue box
 - Esc or right click: game menu
 
 The Ending Gallery on the main menu records endings across playthroughs. Both
@@ -47,8 +48,12 @@ the late assignment adds one pending task and is marked uploaded in the night
 route. The meeting's `PendingTasks -1` is clamped to zero so the HUD never shows
 a negative task count.
 
-Replace a placeholder image or sound with final art by keeping its current
-filename, or update the corresponding declaration in `characters.rpy` or
+`characters.rpy` maps `FPTUday.png` to the daytime campus view (replacing the
+missing `FPTUanime.png`). `KTXAfternoon.png` is declared for a future afternoon
+dorm scene; the current 18:02 ending uses `KTXNight.png`. The normal, good mood,
+and exhausted PLAYER sprites appear in the appropriate moments, including
+`MainExhaust.png` throughout the bad ending. Extra canteen time-of-day variants
+are declared for future scenes. To replace a sound cue, update its path in
 `audio.rpy`.
 
 ## Verification
